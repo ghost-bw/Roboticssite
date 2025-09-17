@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIT Meghalaya Robotics Club</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+    <!-- 3D Background Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container navbar">
+            <div class="logo">
+                <img src="https://www.nitm.ac.in/ckfinder/userfiles/files/NITM.gif" alt="NITM Robotics Club Logo">
+                <div class="logo-text">NITM Robotics Club</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#teams">Teams</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-robot">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="container hero-content">
+            <h1>Innovate. Build. <span class="highlight">Compete.</span></h1>
+            <p>Welcome to the Robotics Club of NIT Meghalaya - Where innovation meets technology and ideas transform
+                into reality. We are a community of passionate students dedicated to exploring the fascinating world of
+                robotics and automation.</p>
+            <a href="#about" class="btn">Explore More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>The NIT Meghalaya Robotics Club is a student-run organization that aims to promote interest in
+                        robotics and related fields among the student community. We provide a platform for students to
+                        learn, experiment, and innovate in the field of robotics.</p>
+                    <p>Our club consists of passionate students from various disciplines who work together to design and
+                        build robots for various competitions and projects. We participate in national and international
+                        robotics competitions, organize workshops and events, and collaborate with industry
+                        professionals.</p>
+                    <p>Whether you're a beginner or an experienced robotics enthusiast, our club offers opportunities
+                        for everyone to learn and grow. Join us in our mission to push the boundaries of technology and
+                        innovation!</p>
+                    <a href="#contact" class="btn">Join Us</a>
+                </div>
+                <div class="slideshow-container">
+                    <div class="slide fade">
+                        <img src="rob1.jpg" alt="Image 1">
+                    </div>
+                    <div class="slide fade">
+                        <img src="rob2.jpg" alt="Image 2">
+                    </div>
+                    <div class="slide fade">
+                        <img src="rob3.jpg" alt="Image 3">
+                    </div>
+                    <div class="slide fade">
+                        <img src="rob4.jpg" alt="Image 3">
+                    </div>
+                    <div class="slide fade">
+                        <img src="rob5.jpg" alt="Image 3">
+                    </div>
+                    <div class="slide fade">
+                        <img src="rob6.jpg" alt="Image 3">
+                    </div>
+                    <div class="slide fade">
+                        <img src="rob7.jpg" alt="Image 3">
+                    </div>
+
+                    <!-- Optional navigation buttons -->
+                    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Our Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Autonomous Rover">
+                    </div>
+                    <div class="project-info">
+                        <h3>Autonomous Rover</h3>
+                        <p>A fully autonomous rover capable of terrain navigation and object recognition using AI and
+                            computer vision.</p>
+                        <!-- <a href="#" class="btn">View Details</a> -->
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1581093458791-9d33f465dea5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Robotic Arm">
+                    </div>
+                    <div class="project-info">
+                        <h3>6-Axis Robotic Arm</h3>
+                        <p>A precision robotic arm with 6 degrees of freedom, designed for industrial automation
+                            applications.</p>
+                        <!-- <a href="#" class="btn">View Details</a> -->
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://mpi.org.imgeng.in/images/default-source/articleimages/october-images---2018/drones-at-events.jpg"
+                            alt="Drone Events">
+                    </div>
+                    <div class="project-info">
+                        <h3>Delivery Drone</h3>
+                        <p>An autonomous drone designed for medical supply delivery in remote areas with GPS navigation.
+                        </p>
+                        <!-- <a href="#" class="btn">View Details</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Robotics Club Head Section -->
+    <section id="club-heads">
+        <div class="container">
+            <h2 class="section-title">Robotics Club Head</h2>
+            <div class="heads-container">
+                <div class="head-card">
+                    <div class="head-image">
+                        <img src="as.jpg" alt="Abhishek Sarkhel">
+                    </div>
+                    <h3> Dr.Abhishek Sarkhel</h3>
+                    <p>Co-Faculty Incharge</p>
+                    <p>Email: abhishek.sarkhel@nitm.ac.in</p>
+                    <p>Phone: 9485177039</p>
+                </div>
+                <div class="head-card">
+                    <div class="head-image">
+                        <img src="bks1.jpg" alt="Dr. Bikash Kumar Sarkar">
+                    </div>
+                    <h3>Dr. Bikash Kumar Sarkar</h3>
+                    <p>Co-Faculty Incharge</p>
+                    <p>Email:bikash.sarkar@nitm.ac.in</p>
+                    <p>Phone: 9485177038</p>
+                </div>
+                <!-- Add more heads here if needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section id="teams">
+        <div class="container">
+            <h2 class="section-title">Our Teams</h2>
+
+            <div class="teams-container">
+                <div class="team-card">
+                    <div class="team-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Robot Operating System</h3>
+                    <p>Open-source framework that provides tools and libraries to build, program, and control robots
+                        efficiently.</p>
+                    <button class="view-members-btn" data-team="ROS">View Team Members</button>
+
+                </div>
+                <div class="team-card">
+                    <div class="team-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Microcontroller and PCB</h3>
+                    <p>Circuit design, PCB fabrication, sensor integration, and power management for robotic systems.
+                    </p>
+                    <button class="view-members-btn" data-team="pcb">View Team Members</button>
+
+                </div>
+                <div class="team-card">
+                    <div class="team-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Development of control algorithms, computer vision, AI integration, and embedded systems
+                        programming.</p>
+                    <button class="view-members-btn" data-team="webd">View Team Members</button>
+
+                </div>
+                <div class="team-card" id="team-card">
+                    <div class="team-icon">
+                        <i class="fa-solid fa-cube fa-rotate-180"></i>
+                    </div>
+                    <h3>3-D Modelling and Simulation</h3>
+                    <p>Creating virtual models and testing them in realistic environments to analyze performance and
+                        design.</p>
+                    <button class="view-members-btn" data-team="threeD">View Team Members</button>
+                </div>
+                <div class="team-card">
+                    <div class="team-icon">
+                        <i class="fa-solid fa-crosshairs"></i>
+                    </div>
+                    <h3>Drone Technology</h3>
+                    <p> Unmanned aerial vehicles to perform tasks like surveillance, delivery, mapping, and research
+                        with precision and efficiency.</p>
+                    <button class="view-members-btn" data-team="drone">View Team Members</button>
+
+                </div>
+                <div class="team-card">
+                    <div class="team-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3>Event Management</h3>
+                    <p>Planning, organizing, and executing of events efficiently to ensure a memorable experience.</p>
+                    <button class="view-members-btn" data-team="event">View Team Members</button>
+
+                </div>
+
+            </div>
+
+            <!-- Team Members Containers (outside of team cards) -->
+            <div class="team-members" id="ROS-members">
+                <h3 class="members-title">ROS Team</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZSUyMHBpY3T1cmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Rajesh Kumar</h4>
+                            <p class="member-role">Team Lead</p>
+                        </div>
+                    </div>
+                    <!-- More member cards -->
+                </div>
+                <button class="back-btn">Back to Teams</button>
+            </div>
+
+            <div class="team-members" id="pcb-members">
+                <h3 class="members-title">Electronics Team</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Vikram Patel</h4>
+                            <p class="member-role">Team Lead</p>
+                        </div>
+                    </div>
+                    <!-- More member cards -->
+                </div>
+                <button class="back-btn">Back to Teams</button>
+            </div>
+
+            <div class="team-members" id="webd-members">
+                <h3 class="members-title">Web Development Team</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Rahul Verma</h4>
+                            <p class="member-role">Team Lead</p>
+                        </div>
+                    </div>
+                    <!-- More member cards -->
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Rahul Verma</h4>
+                            <p class="member-role">Team Lead</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Rahul Verma</h4>
+                            <p class="member-role">Team Lead</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="back-btn">Back to Teams</button>
+            </div>
+
+            <div class="team-members" id="threeD-members">
+                <h3 class="members-title">3-D Modelling and Simulation Team</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Dr. Anil Kumar">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Dr. Anil Kumar</h4>
+                            <p class="member-role">Faculty Advisor</p>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                                alt="Sarah Johnson">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Sarah Johnson</h4>
+                            <p class="member-role">Lead 3D Artist</p>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                                alt="Mike Chen">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Mike Chen</h4>
+                            <p class="member-role">Simulation Engineer</p>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                                alt="Emma Davis">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Emma Davis</h4>
+                            <p class="member-role">Research Assistant</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="back-btn">Back to Teams</button>
+            </div>
+
+            <div class="team-members" id="drone-members">
+                <h3 class="members-title">Electronics Team</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Vikram Patel</h4>
+                            <p class="member-role">Team Lead</p>
+                        </div>
+                    </div>
+                    <!-- More member cards -->
+                </div>
+                <button class="back-btn">Back to Teams</button>
+            </div>
+
+            <div class="team-members" id="event-members">
+                <h3 class="members-title">Electronics Team</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Vikram Patel</h4>
+                            <p class="member-role">Team Lead</p>
+                        </div>
+                    </div>
+                    <!-- More member cards -->
+                </div>
+                <button class="back-btn">Back to Teams</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <div class="container">
+            <h2 class="section-title">Events & Competitions</h2>
+            <div class="events-timeline">
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>RoboRumble</h3>
+                        <p>"Robo Rumble is an exciting battle of bots where innovation meets competition.".</p>
+                        <div class="event-date">Upcoming</div>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>Drone Workshop</h3>
+                        <p>"Drone Workshop is a hands-on session to explore, build, and fly drones while learning the
+                            tech behind them."</p>
+                        <div class="event-date">Upcoming</div>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>Race Against Time</h3>
+                        <p>"Race Against Time is a thrilling challenge where speed, skill, and precision decide the
+                            winner."</p>
+                        <div class="event-date">Upcoming</div>
+                        <a href="rat.html">View More</a>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>Goal Against Time</h3>
+                        <p>"Goal Against Time is a fast-paced challenge to score as many goals as possible before the
+                            clock runs out."</p>
+                        <div class="event-date">Upcoming</div>
+                        <a href="gat.html">View More</a>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>Robodiction</h3>
+                        <p>"Robodiction is a platform that blends robotics and innovation to inspire creativity and
+                            learning.</p>
+                        <div class="event-date">Upcoming</div>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>Maze Runner</h3>
+                        <p>"Maze Runner is a test of logic and navigation where bots race to conquer the maze in the
+                            shortest time."</p>
+                        <div class="event-date">Upcoming</div>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>TechStorm</h3>
+                        <p>"Maze Runner is a test of logic and navigation where bots race to conquer the maze in the
+                            shortest time."</p>
+                        <div class="event-date">Upcoming</div>
+                        <a href="techstorm.html">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-map-marker-alt"></i> NIT Meghalaya, Sohra Campus,Saitsophen,East Khasi
+                            Hills,Meghalaya-793108</li>
+                        <li><i class="fas fa-envelope"></i> robotics.club@nitm.ac.in</li>
+                        <li><i class="fas fa-phone"></i> +91 9693643724</li>
+                        <li><i class="fas fa-clock"></i> Meeting Hours: Not Fixed yet</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com/share/16qpNZmPQS/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://x.com/NIT_Meghalaya?t=hcwmtoZb5i8XENDD4BYYWA&s=08"><i
+                            class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/yabhakriti?igsh=d3lwMDJ1c2E3b292"><i
+                            class="fab fa-instagram"></i></a></li>
+                <li><a
+                        href="https://www.linkedin.com/company/yabhakriti-the-robotics-club-of-nit-meghalaya/?originalSubdomain=in"><i
+                            class="fab fa-linkedin-in"></i></a></li>
+                <!-- <li><a href="#"><i class="fab fa-github"></i></a></li> -->
+            </ul>
+            <p class="copyright">© 2025 NIT Meghalaya Robotics Club. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
