@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIT Meghalaya Robotics Club</title>
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
@@ -41,7 +42,11 @@
             <i class="fas fa-robot"></i>
         </div>
         <div class="container hero-content">
-            <h1>Innovate. Build. <span class="highlight">Compete.</span></h1>
+            <h1>
+                <span class="title-word w1">Innovate.</span>
+                <span class="title-word w2">Build.</span>
+                <span class="title-word w3 highlight">Compete.</span>
+            </h1>
             <p>Welcome to the Robotics Club of NIT Meghalaya - Where innovation meets technology and ideas transform
                 into reality. We are a community of passionate students dedicated to exploring the fascinating world of
                 robotics and automation.</p>
@@ -65,7 +70,7 @@
                     <p>Whether you're a beginner or an experienced robotics enthusiast, our club offers opportunities
                         for everyone to learn and grow. Join us in our mission to push the boundaries of technology and
                         innovation!</p>
-                    <a href="#contact" class="btn">Join Us</a>
+                    <a href="#contact" class="btn">Contact Us</a>
                 </div>
                 <div class="slideshow-container">
                     <div class="slide fade">
@@ -118,8 +123,8 @@
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1581093458791-9d33f465dea5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Robotic Arm">
+                        <img src="https://source.unsplash.com/600x400/?robotics,arm"
+                            alt="6-Axis Robotic Arm random image">
                     </div>
                     <div class="project-info">
                         <h3>6-Axis Robotic Arm</h3>
@@ -224,7 +229,7 @@
                     <p>Creating virtual models and testing them in realistic environments to analyze performance and
                         design.</p>
                     <div class="button-container">
-                        <button class="view-members-btn" data-team="mechanical">View Team Members</button>
+                        <button class="view-members-btn" data-team="modelling">View Team Members</button>
                         
                     </div>
 
@@ -237,7 +242,7 @@
                     <p> Unmanned aerial vehicles to perform tasks like surveillance, delivery, mapping, and research
                         with precision and efficiency.</p>
                     
-                    <button class="view-members-btn" data-team="mechanical">View Team Members</button>
+                    <button class="view-members-btn" data-team="drone">View Team Members</button>
 
                 </div>
                 <div class="team-card">
@@ -247,7 +252,7 @@
                     <h3>Event Management</h3>
                     <p>Planning, organizing, and executing of events efficiently to ensure a memorable experience.</p>
                     <div class="button-container">
-                        <button class="view-members-btn" data-team="mechanical">View Team Members</button>
+                        <button class="view-members-btn" data-team="events">View Team Members</button>
                         
                     </div>
 
@@ -268,65 +273,102 @@
                             <p class="member-role">Team Lead</p>
                         </div>
                     </div>
-                    <!-- More member cards -->
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Priya Sharma</h4>
+                            <p class="member-role">Navigation</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1527980965255-533207b1b75e?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Aman Verma</h4>
+                            <p class="member-role">Perception</p>
+                        </div>
+                    </div>
                 </div>
                 <button class="back-btn">Back to Teams</button>
             </div>
             
             <div class="team-members" id="pcb-members">
-                <h3 class="members-title">Electronics Team</h3>
+                <h3 class="members-title">PCB Team</h3>
                 <div class="members-grid">
                     <div class="member-card">
                         <div class="member-image">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                            <img src="https://images.unsplash.com/photo-1472099645785-d3b416303d12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Team Member">
                         </div>
                         <div class="member-info">
                             <h4 class="member-name">Vikram Patel</h4>
                             <p class="member-role">Team Lead</p>
                         </div>
                     </div>
-                    <!-- More member cards -->
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Neha Gupta</h4>
+                            <p class="member-role">PCB Design</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1527980965255-533207b1b75e?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Arjun Singh</h4>
+                            <p class="member-role">Embedded</p>
+                        </div>
+                    </div>
                 </div>
                 <button class="back-btn">Back to Teams</button>
             </div>
             
             <div class="team-members" id="webd-members">
-                <h3 class="members-title">Software Team</h3>
+                <h3 class="members-title">WEB-D Team</h3>
                 <div class="members-grid">
                     <div class="member-card">
                         <div class="member-image">
-                            <img src="../image/purushottam.jpeg" alt="Team Member">
+                            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
                         </div>
                         <div class="member-info">
-                            <h4 class="member-name">Purushottam Thakur</h4>
+                            <h4 class="member-name">Rahul Verma</h4>
                             <p class="member-role">Team Lead</p>
                         </div>
                     </div>
                     <!-- More member cards -->
-                     <div class="member-card">
+                    <div class="member-card">
                         <div class="member-image">
-                            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
                         </div>
                         <div class="member-info">
-                            <h4 class="member-name">Rahul Verma</h4>
-                            <p class="member-role">Team Lead</p>
+                            <h4 class="member-name">Bhavisya Paudel</h4>
+                            <p class="member-role">Member</p>
                         </div>
                     </div>
                     <div class="member-card">
                         <div class="member-image">
-                            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                            <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
                         </div>
                         <div class="member-info">
-                            <h4 class="member-name">Rahul Verma</h4>
-                            <p class="member-role">Team Lead</p>
+                            <h4 class="member-name">Anshu Mohit</h4>
+                            <p class="member-role">Member</p>
                         </div>
                     </div>
                 </div>
                 <button class="back-btn">Back to Teams</button>
             </div>
             
-            <div class="team-members" id="9d-members">
-                <h3 class="members-title">AI & Research Team</h3>
+            <div class="team-members" id="modelling-members">
+                <h3 class="members-title">3-D Team</h3>
                 <div class="members-grid">
                     <div class="member-card">
                         <div class="member-image">
@@ -337,7 +379,94 @@
                             <p class="member-role">Faculty Advisor</p>
                         </div>
                     </div>
-                    <!-- More member cards -->
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Meera Das</h4>
+                            <p class="member-role">3D Artist</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Suman Roy</h4>
+                            <p class="member-role">Simulation</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="back-btn">Back to Teams</button>
+            </div>
+
+            <!-- Drone Technology Members -->
+            <div class="team-members" id="drone-members">
+                <h3 class="members-title">Drone Technology Team</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Riya Sen</h4>
+                            <p class="member-role">Drone Pilot</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Karan Mehta</h4>
+                            <p class="member-role">Assembly</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Ankit Sharma</h4>
+                            <p class="member-role">Fabrication</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="back-btn">Back to Teams</button>
+            </div>
+
+            <!-- Event Management Members -->
+            <div class="team-members" id="events-members">
+                <h3 class="members-title">Event Management Team</h3>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Ankit Sharma</h4>
+                            <p class="member-role">Operations</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Suman Roy</h4>
+                            <p class="member-role">Coordination</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?auto=format&fit=crop&w=500&q=60" alt="Team Member">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Riya Sen</h4>
+                            <p class="member-role">Logistics</p>
+                        </div>
+                    </div>
                 </div>
                 <button class="back-btn">Back to Teams</button>
             </div>
@@ -353,15 +482,17 @@
                     <div class="event-content">
                         <h3>RoboRumble</h3>
                         <p>"Robo Rumble is an exciting battle of bots where innovation meets competition.".</p>
-                        <a href="roborumble.html" class="event-button">View Details</a>
+                        <div class="event-date">Upcoming</div>
+                        <a href="roborumble.html">View More</a>
                     </div>
                 </div>
                 <div class="event-item">
                     <div class="event-content">
-                        <h3>Drone Workshop</h3>
-                        <p>"Drone Workshop is a hands-on session to explore, build, and fly drones while learning the
+                        <h3>Tiny Titans</h3>
+                        <p>"Tiny Titans is a hands-on session to explore, build, and fly drones while learning the
                             tech behind them."</p>
-                        <a href="rat.html" class="event-button">View Details</a>
+                        <div class="event-date">Upcoming</div>
+                        <a href="tiny.html">View More</a>
                     </div>
                 </div>
                 <div class="event-item">
@@ -369,7 +500,8 @@
                         <h3>Race Against Time</h3>
                         <p>"Race Against Time is a thrilling challenge where speed, skill, and precision decide the
                             winner."</p>
-                        <a href="rat.html" class="event-button">View Details</a>
+                        <div class="event-date">Upcoming</div>
+                        <a href="rat.html">View More</a>
                     </div>
                 </div>
                 <div class="event-item">
@@ -377,7 +509,8 @@
                         <h3>Goal Against Time</h3>
                         <p>"Goal Against Time is a fast-paced challenge to score as many goals as possible before the
                             clock runs out."</p>
-                        <a href="rat.html" class="event-button">View Details</a>
+                        <div class="event-date">Upcoming</div>
+                        <a href="gat.html">View More</a>
                     </div>
                 </div>
                 <div class="event-item">
@@ -385,7 +518,8 @@
                         <h3>Robodiction</h3>
                         <p>"Robodiction is a platform that blends robotics and innovation to inspire creativity and
                             learning.</p>
-                        <a href="rat.html" class="event-button">View Details</a>
+                        <div class="event-date">Upcoming</div>
+                        <a href="robodiction.html">View More</a>
                     </div>
                 </div>
                 <div class="event-item">
@@ -393,7 +527,17 @@
                         <h3>Maze Runner</h3>
                         <p>"Maze Runner is a test of logic and navigation where bots race to conquer the maze in the
                             shortest time."</p>
-                        <a href="rat.html" class="event-button">View Details</a>
+                        <div class="event-date">Upcoming</div>
+                        <a href="maze.html">View More</a>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-content">
+                        <h3>TechStorm</h3>
+                        <p>"Maze Runner is a test of logic and navigation where bots race to conquer the maze in the
+                            shortest time."</p>
+                        <div class="event-date">Upcoming</div>
+                        <a href="techstorm.html">View More</a>
                     </div>
                 </div>
             </div>
@@ -431,6 +575,29 @@
                         </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mini Maze Runner Section -->
+    <section id="mini-maze">
+        <div class="container mini-maze-wrapper">
+            <h2 class="section-title">Mini Maze Runner</h2>
+            <div class="mini-maze-content">
+                <canvas id="mazeCanvas" width="360" height="360" tabindex="0" aria-label="Mini Maze Runner Game"></canvas>
+                <div class="mini-maze-ui">
+                    <p class="mini-maze-instructions">Use the arrow keys to move the robot to the glowing goal. Click the canvas to focus. Press Reset to restart.</p>
+                    <button id="mazeReset" class="btn">Reset</button>
+                    <div class="mini-maze-controls" aria-label="Maze controls">
+                        <button id="mazeUp" class="btn" aria-label="Move up">▲</button>
+                        <div class="mini-maze-spacer"></div>
+                        <button id="mazeRight" class="btn" aria-label="Move right">▶</button>
+                        <button id="mazeLeft" class="btn" aria-label="Move left">◀</button>
+                        <div class="mini-maze-spacer"></div>
+                        <button id="mazeDown" class="btn" aria-label="Move down">▼</button>
+                    </div>
+                    <div id="mazeStatus" class="mini-maze-status" role="status" aria-live="polite"></div>
                 </div>
             </div>
         </div>

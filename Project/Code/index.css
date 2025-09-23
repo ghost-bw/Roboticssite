@@ -147,11 +147,36 @@ header.sticky {
     transform: rotate(15deg);
 }
 
+/* Intensify glow on hover */
+.logo:hover .logo-text,
+.logo-text:hover {
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.7), 0 0 18px rgba(100, 255, 218, 0.35);
+}
+
+/* Robotic animated gradient and neon pulse */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes neonPulse {
+    0%, 100% { text-shadow: 0 0 6px rgba(100, 255, 218, 0.45), 0 0 0 rgba(100, 255, 218, 0); }
+    50% { text-shadow: 0 0 10px rgba(100, 255, 218, 0.85), 0 0 20px rgba(100, 255, 218, 0.35); }
+}
+
 .logo-text {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #64ffda;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #64ffda, #a0f0ff, #64ffda);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 6px rgba(100, 255, 218, 0.45);
+    animation: gradientMove 8s linear infinite, neonPulse 2.8s ease-in-out infinite;
 }
 
 .nav-links {
@@ -721,6 +746,12 @@ header.sticky {
             min-width: 180px;
             text-align: center;
         }
+
+        /* Ensure bottom alignment even if button is not wrapped in .button-container */
+        .team-card > .view-members-btn {
+            margin-top: auto;
+            align-self: center;
+        }
         
         .view-members-btn:hover {
             background: rgba(100, 255, 218, 0.1);
@@ -943,25 +974,108 @@ header.sticky {
     font-weight: 700;
 }
 
- .event-button {
-            display: inline-block;
-            background: #64ffda;
-            color: #0a192f;
-            padding: 12px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .event-button:hover {
-            background: #4fd1b6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(100, 255, 218, 0.3);
-        }
+.event-button {
+    display: inline-block;
+    background: #64ffda;
+    color: #0a192f;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.event-button:hover {
+    background: #4fd1b6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(100, 255, 218, 0.3);
+}
+
+/* Style "View More" links inside events as proper buttons (without changing HTML) */
+.event-content a {
+    display: inline-block;
+    background: transparent;
+    color: #64ffda;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    border: 1px solid #64ffda;
+}
+
+.event-content a:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 0 16px rgba(100, 255, 218, 0.35);
+}
+
+/* Mini Maze Runner layout (canvas left, UI right) */
+.mini-maze-wrapper {
+    max-width: 1000px;
+}
+
+.mini-maze-content {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.mini-maze-ui {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 180px;
+    align-items: center;
+}
+
+.mini-maze-instructions {
+    color: #8892b0;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.mini-maze-status {
+    color: #64ffda;
+    min-height: 20px;
+}
+
+/* D-pad grid for arrow controls */
+.mini-maze-controls {
+    display: grid;
+    grid-template-columns: 48px 48px 48px;
+    grid-template-rows: 48px 48px 48px;
+    grid-template-areas:
+        ". up ."
+        "left . right"
+        ". down .";
+    gap: 10px;
+}
+
+#mazeUp { grid-area: up; }
+#mazeDown { grid-area: down; }
+#mazeLeft { grid-area: left; }
+#mazeRight { grid-area: right; }
+
+.mini-maze-spacer { display: none; }
+
+#mazeUp, #mazeRight, #mazeLeft, #mazeDown {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    line-height: 48px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#mazeReset { align-self: center; }
+
+#mazeCanvas { flex: 0 0 auto; }
+.mini-maze-ui { flex: 0 0 auto; }
 
 /* Contact Section */
 .contact-content {
@@ -1147,6 +1261,7 @@ footer:before {
         flex-direction: column;
     }
 }
+
 .maze-runner{
     background-position: center;
     align-items: center;
@@ -1201,4 +1316,41 @@ footer:before {
     .event-item:after {
         left: 20px !important;
     }
+
+    /* Robotics Club Head section mobile alignment */
+    #club-heads .heads-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    #club-heads .head-card {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    /* Mini Maze Runner: stack UI below canvas on mobile */
+    #mini-maze .mini-maze-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    #mini-maze .mini-maze-ui {
+        align-items: center;
+        min-width: 0;
+    }
+}
+
+.event-view-more {
+    color: transparent;
+    text-shadow: 0 0 5px #64ffda;
+    transition: all 0.3s ease;
+}
+
+.event-view-more:hover {
+    color: #64ffda;
+    text-shadow: none;
 }

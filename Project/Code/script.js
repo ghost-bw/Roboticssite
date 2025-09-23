@@ -239,6 +239,7 @@ function showAllTeams(){
     }
     let t_cards=document.querySelectorAll('.team-card');
     for(card of t_cards){
+        // Restore flex display so the card layout matches CSS (.team-card { display:flex })
         card.style.display ='flex';
         console.dir(card);
     }
@@ -247,4 +248,287 @@ let back_btns=document.querySelectorAll(".back-btn");
 for(b_btn of back_btns){
     b_btn.addEventListener('click',showAllTeams);
 }
+
+// Mini Maze Runner Game (appears at bottom of the site)
+window.addEventListener('DOMContentLoaded', function () {
+    const canvas = document.getElementById('mazeCanvas');
+    const resetBtn = document.getElementById('mazeReset');
+    const statusEl = document.getElementById('mazeStatus');
+    if (!canvas || !canvas.getContext) return; // Only run if section exists
+
+    const ctx = canvas.getContext('2d');
+    const size = 15; // Use an odd grid size for proper maze carving (walls between cells)
+    const cell = canvas.width / size; // 360/15 = 24px per cell
+
+    // Maze data (0: path, 1: wall). We'll generate it dynamically.
+    let maze = [];
+    const start = { x: 1, y: 1 };
+    const goal = { x: size - 2, y: size - 2 };
+    let player = { x: start.x, y: start.y };
+    let won = false;
+
+    function drawCell(x, y, color) {
+        ctx.fillStyle = color;
+        ctx.fillRect(x * cell, y * cell, cell, cell);
+    }
+
+    // Draw a simple robot icon centered at (px, py)
+    function drawRobot(px, py) {
+        const s = cell; // base size reference
+        const bodyW = s * 0.45;
+        const bodyH = s * 0.38;
+        const headW = s * 0.28;
+        const headH = s * 0.2;
+
+        // Glow shadow
+        ctx.shadowColor = 'rgba(100,255,218,0.25)';
+        ctx.shadowBlur = 8;
+
+        // Body
+        ctx.fillStyle = '#64ffda';
+        ctx.strokeStyle = 'rgba(10,25,47,0.9)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(px - bodyW/2, py - bodyH/2, bodyW, bodyH, 4);
+        ctx.fill();
+        ctx.stroke();
+
+        // Head
+        ctx.beginPath();
+        ctx.roundRect(px - headW/2, py - bodyH/2 - headH - 2, headW, headH, 3);
+        ctx.fill();
+        ctx.stroke();
+
+        // Eyes
+        ctx.fillStyle = '#0a192f';
+        const eyeR = s * 0.03;
+        ctx.beginPath();
+        ctx.arc(px - headW * 0.2, py - bodyH/2 - headH/2 - 2, eyeR, 0, Math.PI*2);
+        ctx.arc(px + headW * 0.2, py - bodyH/2 - headH/2 - 2, eyeR, 0, Math.PI*2);
+        ctx.fill();
+
+        // Antenna
+        ctx.strokeStyle = '#64ffda';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(px, py - bodyH/2 - headH - 2);
+        ctx.lineTo(px, py - bodyH/2 - headH - 2 - s*0.12);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(px, py - bodyH/2 - headH - 2 - s*0.12, s*0.03, 0, Math.PI*2);
+        ctx.fillStyle = '#64ffda';
+        ctx.fill();
+
+        // Arms
+        ctx.fillStyle = '#64ffda';
+        ctx.beginPath();
+        ctx.roundRect(px - bodyW/2 - s*0.12, py - bodyH*0.15, s*0.12, s*0.12, 3);
+        ctx.roundRect(px + bodyW/2, py - bodyH*0.15, s*0.12, s*0.12, 3);
+        ctx.fill();
+
+        // Feet
+        ctx.beginPath();
+        ctx.roundRect(px - bodyW*0.35, py + bodyH/2 - s*0.05, s*0.16, s*0.1, 3);
+        ctx.roundRect(px + bodyW*0.19, py + bodyH/2 - s*0.05, s*0.16, s*0.1, 3);
+        ctx.fill();
+
+        // Reset shadow
+        ctx.shadowBlur = 0;
+    }
+
+    function drawGrid() {
+        // Background
+        ctx.fillStyle = '#0b1a33';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Walls
+        for (let y = 0; y < size; y++) {
+            for (let x = 0; x < size; x++) {
+                if (maze[y][x] === 1) {
+                    // Subtle wall effect
+                    drawCell(x, y, '#0e2344');
+                    ctx.strokeStyle = 'rgba(100, 255, 218, 0.15)';
+                    ctx.strokeRect(x * cell + 0.5, y * cell + 0.5, cell - 1, cell - 1);
+                }
+            }
+        }
+
+        // Goal (glow)
+        const gx = goal.x * cell + cell / 2;
+        const gy = goal.y * cell + cell / 2;
+        const grad = ctx.createRadialGradient(gx, gy, 4, gx, gy, 16);
+        grad.addColorStop(0, 'rgba(100,255,218,0.9)');
+        grad.addColorStop(1, 'rgba(100,255,218,0.05)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(gx, gy, cell * 0.4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.closePath();
+
+        // Player (Robot icon)
+        const px = player.x * cell + cell / 2;
+        const py = player.y * cell + cell / 2;
+        drawRobot(px, py);
+    }
+
+    function atGoal() {
+        return player.x === goal.x && player.y === goal.y;
+    }
+
+    function setStatus(msg) {
+        if (statusEl) statusEl.textContent = msg;
+    }
+
+    function tryMove(dx, dy) {
+        if (won) return;
+        const nx = player.x + dx;
+        const ny = player.y + dy;
+        if (maze[ny] && maze[ny][nx] === 0) {
+            player.x = nx;
+            player.y = ny;
+            drawGrid();
+            if (atGoal()) {
+                won = true;
+                setStatus('Goal reached! Great job!');
+            }
+        }
+    }
+
+    // Randomized DFS Maze Generator
+    function generateMaze(n) {
+        // Initialize with walls
+        const grid = Array.from({ length: n }, () => Array(n).fill(1));
+
+        // Carve starting from (1,1)
+        function carve(x, y) {
+            grid[y][x] = 0; // current cell becomes a passage
+            const dirs = [
+                [0, -2], // up
+                [0, 2],  // down
+                [-2, 0], // left
+                [2, 0],  // right
+            ];
+            // Shuffle directions
+            for (let i = dirs.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [dirs[i], dirs[j]] = [dirs[j], dirs[i]];
+            }
+            for (const [dx, dy] of dirs) {
+                const nx = x + dx;
+                const ny = y + dy;
+                if (ny > 0 && ny < n - 1 && nx > 0 && nx < n - 1 && grid[ny][nx] === 1) {
+                    // knock down the wall between (x,y) and (nx,ny)
+                    grid[y + dy / 2][x + dx / 2] = 0;
+                    carve(nx, ny);
+                }
+            }
+        }
+
+        // Start carving from start cell (must be odd indices)
+        carve(1, 1);
+
+        // Ensure start and goal are open
+        grid[start.y][start.x] = 0;
+        grid[goal.y][goal.x] = 0;
+
+        // Optionally open at least one neighbor near goal to avoid isolation
+        const near = [
+            [goal.x - 1, goal.y],
+            [goal.x, goal.y - 1],
+        ];
+        near.forEach(([x, y]) => { if (grid[y][x] === 1) grid[y][x] = 0; });
+
+        return grid;
+    }
+
+    function handleKey(e) {
+        switch (e.key) {
+            case 'ArrowUp':
+            case 'w':
+            case 'W':
+                e.preventDefault();
+                tryMove(0, -1); break;
+            case 'ArrowDown':
+            case 's':
+            case 'S':
+                e.preventDefault();
+                tryMove(0, 1); break;
+            case 'ArrowLeft':
+            case 'a':
+            case 'A':
+                e.preventDefault();
+                tryMove(-1, 0); break;
+            case 'ArrowRight':
+            case 'd':
+            case 'D':
+                e.preventDefault();
+                tryMove(1, 0); break;
+            default: break;
+        }
+    }
+
+    function resetGame() {
+        // Regenerate a fresh maze each reset
+        maze = generateMaze(size);
+        player = { x: start.x, y: start.y };
+        won = false;
+        setStatus('');
+        drawGrid();
+    }
+
+    // Initial generation and draw
+    maze = generateMaze(size);
+    drawGrid();
+
+    // Focus on click to ensure arrow keys work
+    canvas.addEventListener('click', () => canvas.focus());
+    canvas.addEventListener('keydown', handleKey);
+    if (resetBtn) resetBtn.addEventListener('click', resetGame);
+
+    // On-screen button controls (mobile-friendly)
+    const btnUp = document.getElementById('mazeUp');
+    const btnDown = document.getElementById('mazeDown');
+    const btnLeft = document.getElementById('mazeLeft');
+    const btnRight = document.getElementById('mazeRight');
+    if (btnUp) btnUp.addEventListener('click', () => tryMove(0, -1));
+    if (btnDown) btnDown.addEventListener('click', () => tryMove(0, 1));
+    if (btnLeft) btnLeft.addEventListener('click', () => tryMove(-1, 0));
+    if (btnRight) btnRight.addEventListener('click', () => tryMove(1, 0));
+
+    // Swipe gesture controls for touch devices
+    let touchStartX = 0, touchStartY = 0;
+    let touchEndX = 0, touchEndY = 0;
+    const threshold = 20; // minimal swipe distance in px
+
+    function handleSwipe() {
+        const dx = touchEndX - touchStartX;
+        const dy = touchEndY - touchStartY;
+        if (Math.abs(dx) < threshold && Math.abs(dy) < threshold) return; // ignore short swipes
+        if (Math.abs(dx) > Math.abs(dy)) {
+            // horizontal swipe
+            if (dx > 0) tryMove(1, 0); else tryMove(-1, 0);
+        } else {
+            // vertical swipe
+            if (dy > 0) tryMove(0, 1); else tryMove(0, -1);
+        }
+    }
+
+    canvas.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }
+        // Prevent scrolling while interacting with the canvas
+        e.preventDefault();
+    }, { passive: false });
+
+    canvas.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches.length > 0) {
+            touchEndX = e.changedTouches[0].clientX;
+            touchEndY = e.changedTouches[0].clientY;
+            handleSwipe();
+        }
+        e.preventDefault();
+    }, { passive: false });
+});
 
