@@ -202,20 +202,20 @@ window.addEventListener('scroll', checkScroll);
 // Show selected team members
 function showTeamMembers(teamId) {
     // Hide all team members sections
-    let t_members=document.querySelectorAll('.team-members');
-    for(member of t_members){
+    let t_members = document.querySelectorAll('.team-members');
+    for (member of t_members) {
         member.classList.remove('active');
     }
-    
+
     // Hide all team cards
-    let t_cards=document.querySelectorAll('.team-card');
-    for(card of t_cards){
-        card.style.display ='none';
+    let t_cards = document.querySelectorAll('.team-card');
+    for (card of t_cards) {
+        card.style.display = 'none';
         console.dir(card);
     }
-    
+
     // Show the selected team members section
-    let ele=teamId + '-members'
+    let ele = teamId + '-members'
     let teamSection = document.querySelector(`#${ele}`);
     if (teamSection) {
         teamSection.classList.add('active');
@@ -223,32 +223,94 @@ function showTeamMembers(teamId) {
     }
 }
 // Event delegation for view and back buttons
-let member_btns=document.querySelectorAll(".view-members-btn");
-for(member_btn of member_btns){
-    member_btn.addEventListener('click',(event)=>{
-        let team=event.target.getAttribute('data-team');
+let member_btns = document.querySelectorAll(".view-members-btn");
+for (member_btn of member_btns) {
+    member_btn.addEventListener('click', (event) => {
+        let team = event.target.getAttribute('data-team');
         showTeamMembers(team);
         console.log(team);
     })
 }
 // Show all teams
-function showAllTeams(){
-    let t_members=document.querySelectorAll('.team-members');
-    for(member of t_members){
+function showAllTeams() {
+    let t_members = document.querySelectorAll('.team-members');
+    for (member of t_members) {
         member.classList.remove('active');
     }
-    let t_cards=document.querySelectorAll('.team-card');
-    for(card of t_cards){
+    let t_cards = document.querySelectorAll('.team-card');
+    for (card of t_cards) {
         // Restore flex display so the card layout matches CSS (.team-card { display:flex })
-        card.style.display ='flex';
+        card.style.display = 'flex';
         console.dir(card);
     }
 }
-let back_btns=document.querySelectorAll(".back-btn");
-for(b_btn of back_btns){
-    b_btn.addEventListener('click',showAllTeams);
+let back_btns = document.querySelectorAll(".back-btn");
+for (b_btn of back_btns) {
+    b_btn.addEventListener('click', showAllTeams);
 }
 
+(function () {
+    emailjs.init("6xdZjUsTe2qxcBeS3");
+})();
+
+let generatedOTP = null;
+
+// Step 1: Generate OTP & Send Email
+document.getElementById("send-otp-btn").addEventListener("click", function () {
+    const emailInput = document.getElementById("email").value.trim();
+
+    // Allow only @nitm.ac.in emails
+    if (!emailInput.endsWith("@nitm.ac.in")) {
+        alert("Please use your official college email (@nitm.ac.in) to continue.");
+        return; // Stop execution, don’t send OTP
+    }
+
+    if (!emailInput) {
+        alert("Enter a valid email first.");
+        return;
+    }
+
+    generatedOTP = Math.floor(100000 + Math.random() * 900000); // 6-digit OTP
+
+    // Send OTP email using EmailJS template
+    emailjs.send("service_21w1kho", "template_l6ofpds", {
+        to_email: emailInput,
+        otp: generatedOTP
+    }).then(() => {
+        alert("OTP sent to your email!");
+        document.getElementById("otp-section").style.display = "block";
+    }, (err) => {
+        console.error("Failed to send OTP", err);
+        alert("Error sending OTP. Try again.");
+    });
+});
+
+// Step 2: Handle Form Submit
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const userOTP = document.getElementById("otp").value;
+
+    if (parseInt(userOTP) === generatedOTP) {
+        emailjs.sendForm("service_21w1kho", "template_x3503ao", "#contact-form", { from_name: document.getElementById("name").value, from_subject: document.getElementById("subject").value, from_email: document.getElementById("email").value, message: document.getElementById("message").value })
+            .then(() => {
+                alert("Message sent successfully!");
+                this.reset();
+                document.getElementById("otp-section").style.display = "none";
+                document.getElementById("submit-btn").disabled = true;
+            }, (error) => {
+                console.error("FAILED...", error);
+                alert("Failed to send message.");
+            });
+    } else {
+        alert("Invalid OTP. Try again.");
+    }
+});
+
+// Enable submit button only after OTP entered
+document.getElementById("otp").addEventListener("input", function () {
+    document.getElementById("submit-btn").disabled = this.value.length < 6;
+});
 // Mini Maze Runner Game (appears at bottom of the site)
 window.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById('mazeCanvas');
@@ -289,13 +351,13 @@ window.addEventListener('DOMContentLoaded', function () {
         ctx.strokeStyle = 'rgba(10,25,47,0.9)';
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.roundRect(px - bodyW/2, py - bodyH/2, bodyW, bodyH, 4);
+        ctx.roundRect(px - bodyW / 2, py - bodyH / 2, bodyW, bodyH, 4);
         ctx.fill();
         ctx.stroke();
 
         // Head
         ctx.beginPath();
-        ctx.roundRect(px - headW/2, py - bodyH/2 - headH - 2, headW, headH, 3);
+        ctx.roundRect(px - headW / 2, py - bodyH / 2 - headH - 2, headW, headH, 3);
         ctx.fill();
         ctx.stroke();
 
@@ -303,33 +365,33 @@ window.addEventListener('DOMContentLoaded', function () {
         ctx.fillStyle = '#0a192f';
         const eyeR = s * 0.03;
         ctx.beginPath();
-        ctx.arc(px - headW * 0.2, py - bodyH/2 - headH/2 - 2, eyeR, 0, Math.PI*2);
-        ctx.arc(px + headW * 0.2, py - bodyH/2 - headH/2 - 2, eyeR, 0, Math.PI*2);
+        ctx.arc(px - headW * 0.2, py - bodyH / 2 - headH / 2 - 2, eyeR, 0, Math.PI * 2);
+        ctx.arc(px + headW * 0.2, py - bodyH / 2 - headH / 2 - 2, eyeR, 0, Math.PI * 2);
         ctx.fill();
 
         // Antenna
         ctx.strokeStyle = '#64ffda';
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.moveTo(px, py - bodyH/2 - headH - 2);
-        ctx.lineTo(px, py - bodyH/2 - headH - 2 - s*0.12);
+        ctx.moveTo(px, py - bodyH / 2 - headH - 2);
+        ctx.lineTo(px, py - bodyH / 2 - headH - 2 - s * 0.12);
         ctx.stroke();
         ctx.beginPath();
-        ctx.arc(px, py - bodyH/2 - headH - 2 - s*0.12, s*0.03, 0, Math.PI*2);
+        ctx.arc(px, py - bodyH / 2 - headH - 2 - s * 0.12, s * 0.03, 0, Math.PI * 2);
         ctx.fillStyle = '#64ffda';
         ctx.fill();
 
         // Arms
         ctx.fillStyle = '#64ffda';
         ctx.beginPath();
-        ctx.roundRect(px - bodyW/2 - s*0.12, py - bodyH*0.15, s*0.12, s*0.12, 3);
-        ctx.roundRect(px + bodyW/2, py - bodyH*0.15, s*0.12, s*0.12, 3);
+        ctx.roundRect(px - bodyW / 2 - s * 0.12, py - bodyH * 0.15, s * 0.12, s * 0.12, 3);
+        ctx.roundRect(px + bodyW / 2, py - bodyH * 0.15, s * 0.12, s * 0.12, 3);
         ctx.fill();
 
         // Feet
         ctx.beginPath();
-        ctx.roundRect(px - bodyW*0.35, py + bodyH/2 - s*0.05, s*0.16, s*0.1, 3);
-        ctx.roundRect(px + bodyW*0.19, py + bodyH/2 - s*0.05, s*0.16, s*0.1, 3);
+        ctx.roundRect(px - bodyW * 0.35, py + bodyH / 2 - s * 0.05, s * 0.16, s * 0.1, 3);
+        ctx.roundRect(px + bodyW * 0.19, py + bodyH / 2 - s * 0.05, s * 0.16, s * 0.1, 3);
         ctx.fill();
 
         // Reset shadow
