@@ -100,7 +100,7 @@ section {
 
 /* Header Styles */
 header {
-    position: fixed;
+    position:relative   ;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -1072,6 +1072,40 @@ header.sticky {
     font-size: 20px;
 }
 
+/* Ultra-compact layout for very small devices */
+@media (max-width: 380px) {
+    #mini-maze {
+        padding: 28px 0;
+    }
+
+    #mini-maze .section-title {
+        margin-bottom: 12px;
+        font-size: 1.4rem;
+    }
+
+    #mazeCanvas {
+        width: 240px;
+        height: 240px;
+    }
+
+    .mini-maze-controls {
+        grid-template-columns: 32px 32px 32px;
+        grid-template-rows: 32px 32px 32px;
+        gap: 6px;
+    }
+
+    #mazeUp, #mazeRight, #mazeLeft, #mazeDown {
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+    }
+
+    .mini-maze-instructions {
+        font-size: 0.85rem;
+    }
+}
+
 #mazeReset { align-self: center; }
 
 #mazeCanvas { flex: 0 0 auto; }
@@ -1276,10 +1310,10 @@ footer:before {
 
     .nav-links {
         position: fixed;
-        top: 80px;
+        top: 60px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 60px);
         background: #0a192f;
         flex-direction: column;
         align-items: center;
@@ -1335,12 +1369,70 @@ footer:before {
     #mini-maze .mini-maze-content {
         flex-direction: column;
         align-items: center;
-        gap: 18px;
+        gap: 12px;
     }
 
     #mini-maze .mini-maze-ui {
         align-items: center;
         min-width: 0;
+    }
+
+    /* Reduce section vertical spacing to help fit canvas + controls */
+    #mini-maze {
+        padding: 40px 0;
+    }
+    /* Tighten mini-maze section title spacing on mobile */
+    #mini-maze .section-title {
+        margin-bottom: 18px;
+        font-size: 1.6rem;
+    }
+
+    /* Scale canvas down on small screens (attributes remain 360x360, CSS scales visually) */
+    #mazeCanvas {
+        width: 240px;
+        height: 240px;
+    }
+
+    /* Compact the D-pad controls */
+    .mini-maze-controls {
+        grid-template-columns: 32px 32px 32px;
+        grid-template-rows: 32px 32px 32px;
+        gap: 6px;
+    }
+
+    #mazeUp, #mazeRight, #mazeLeft, #mazeDown {
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 14px;
+        padding: 0;
+    }
+
+    /* Make instructions text a bit smaller to save space */
+    .mini-maze-instructions {
+        font-size: 0.9rem;
+    }
+
+    /* Make header scroll with the page on mobile and reduce its size */
+    header {
+        position: static;
+        top: auto;
+        padding: 10px 0;
+        backdrop-filter: blur(6px);
+    }
+
+    /* Tighter logo sizing on mobile to avoid covering hero text */
+    .logo img {
+        height: 48px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    /* Since header is not fixed on mobile, reduce hero top padding */
+    .hero {
+        padding-top: 20px;
     }
 }
 
