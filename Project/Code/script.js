@@ -260,6 +260,34 @@ document.getElementById('scrollTop').addEventListener('click', function () {
     });
 });
 
+// Teams mobile slider controls
+(function(){
+    const teamsContainer = document.querySelector('#teams .teams-container');
+    const prevBtn = document.querySelector('#teams .team-nav.prev');
+    const nextBtn = document.querySelector('#teams .team-nav.next');
+    if (!teamsContainer || !prevBtn || !nextBtn) return;
+
+    function getScrollAmount(){
+        // Scroll by one card width or container width minus padding
+        const card = teamsContainer.querySelector('.team-card');
+        const cardWidth = card ? card.getBoundingClientRect().width : 300;
+        const containerWidth = teamsContainer.getBoundingClientRect().width;
+        // Choose the larger to advance meaningfully on small screens
+        return Math.max(cardWidth, containerWidth * 0.9);
+    }
+
+    prevBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        teamsContainer.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        teamsContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+})();
+
 // Event Items Animation on Scroll
 const eventItems = document.querySelectorAll('.event-item');
 

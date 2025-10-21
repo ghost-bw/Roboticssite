@@ -808,6 +808,56 @@ body.no-scroll::after {
             padding: 20px;
             scroll-snap-type: x mandatory;
         }
+
+/* Team slider nav buttons (hidden by default, shown on mobile) */
+.team-nav {
+    display: none;
+    position: relative;
+    background: rgba(100,255,218,0.15);
+    border: 1px solid #64ffda;
+    color: #64ffda;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 5;
+}
+.team-nav:hover { background: rgba(100,255,218,0.25); transform: translateY(-2px); }
+
+@media (max-width: 992px) {
+  /* Show buttons on mobile and place them flanking the list */
+  #teams .container { position: relative; }
+  .team-nav { 
+    display: inline-flex; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    z-index: 6;
+  }
+  .team-nav.prev { left: 6px; margin: 0; }
+  .team-nav.next { right: 6px; margin: 0; }
+  /* Reduce horizontal padding so buttons and scroller fit nicely */
+  #teams .teams-container {
+    display: flex !important; /* override earlier grid rule */
+    flex-wrap: nowrap;
+    padding: 12px;
+    gap: 12px;
+    overflow-x: auto; /* allow horizontal scroll */
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  /* One card per view */
+  #teams .team-card {
+    flex: 0 0 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    scroll-snap-align: start;
+  }
+}
         
         .teams-container::-webkit-scrollbar {
             height: 8px;
