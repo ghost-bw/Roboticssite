@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - NIT Meghalaya Robotics Club</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<style>
+  /* Align gallery page l */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background-color: #0a192f; color: #e6f1ff; line-height: 1.6; overflow-x: hidden; }
+  .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+  /* Section heading */
+  #gallery .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+    color: #64ffda;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+  }
+  #gallery .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #64ffda;
+  }
+  #gallery .section-subtitle { color: #8892b0; margin-bottom: 40px; }
+        .team-section { animation-delay: 0.2s; }
+        .event-header { animation: fadeInDown 1s ease-out; }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: translateY(0);} }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px);} to { opacity: 1; transform: translateY(0);} }
+
+        /* Scroll behavior */
+        html { scroll-behavior: smooth; }
+        /* Background animation */
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 80%, rgba(100, 255, 218, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(100, 255, 218, 0.03) 0%, transparent 50%); z-index: -1; animation: backgroundShift 10s ease-in-out infinite; }
+        @keyframes backgroundShift { 0%,100%{opacity:0.3} 50%{opacity:0.6} }
+
+  /* Make gallery section background match main page (override index.css) */
+  #gallery { background: transparent !important; padding: 80px 0; }
+
+  /* Tweak media appearance to avoid black boxes */
+  .gallery-item video { background-color: transparent !important; border: 1px solid rgba(100,255,218,0.2); }
+
+  @media (max-width: 768px) {
+    #gallery .section-title { font-size: 2rem; }
+    .gallery-grid { gap: 16px; }
+  }
+</style>
+<body>
+  <div id="canvas-container"></div>
+
+  <header id="header">
+    <div class="container navbar">
+      <div class="logo">
+        <img src="https://www.nitm.ac.in/ckfinder/userfiles/files/NITM.gif" alt="NITM Robotics Club Logo">
+        <div class="logo-text">NITM Robotics Club</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html#teams">Teams</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">Take a glimpse of our Robotics Club projects and events</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="../image/img 1.jpg" alt="Gallery Image 3">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/img 2.jpg" alt="Gallery Image 4">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/img 3.jpg" alt="Gallery Image 5">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/img 4.jpg" alt="Gallery Image 6">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/img 5.jpg" alt="Gallery Image 7">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/img 6.jpg" alt="Gallery Image 8">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/img 7.jpg" alt="Gallery Image 9">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/rob1.jpg" alt="Gallery Image 11">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/rob2.jpg" alt="Gallery Image 12">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/rob3.jpg" alt="Gallery Image 13">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/rob4.jpg" alt="Gallery Image 14">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/rob5.jpg" alt="Gallery Image 15">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/rob6.jpg" alt="Gallery Image 16">
+        </div>
+        <div class="gallery-item">
+          <img src="../image/rob7.jpg" alt="Gallery Image 17">
+        </div>
+        <div class="gallery-item">
+          <video controls>
+            <source src="../image/vid 1.mp4" type="video/mp4">
+          </video>
+          <h3 class="media-title">Autonomous Robot Demo1</h3>
+        </div>
+        <div class="gallery-item">
+          <video controls>
+            <source src="../image/vid 2.mp4" type="video/mp4">
+          </video>
+          <h3 class="media-title">Autonomous Robot Demo2</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    // Minimal background init (safe subset of index's background)
+    (function initBg(){
+      const container = document.getElementById('canvas-container');
+      if (!container || !window.THREE) return;
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      container.appendChild(renderer.domElement);
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 1500;
+      const posArray = new Float32Array(particlesCount * 3);
+      for (let i = 0; i < particlesCount * 3; i++) posArray[i] = (Math.random() - 0.5) * 20;
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      const particlesMaterial = new THREE.PointsMaterial({ size: 0.05, color: 0x64ffda, transparent: true, opacity: 0.6 });
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+      const group = new THREE.Group();
+      const cubeGeo = new THREE.BoxGeometry(1,1,1);
+      const cubeMat = new THREE.MeshBasicMaterial({ color: 0x64ffda, wireframe: true, transparent: true, opacity: 0.4 });
+      for (let i = 0; i < 8; i++) {
+        const cube = new THREE.Mesh(cubeGeo, cubeMat);
+        cube.position.set((Math.random()-0.5)*15,(Math.random()-0.5)*15,(Math.random()-0.5)*15);
+        cube.rotation.set(Math.random()*Math.PI, Math.random()*Math.PI, 0);
+        cube.scale.multiplyScalar(Math.random()+0.5);
+        group.add(cube);
+      }
+      scene.add(group);
+      camera.position.z = 5;
+      function animate(){
+        requestAnimationFrame(animate);
+        particlesMesh.rotation.x += 0.0005;
+        particlesMesh.rotation.y += 0.0005;
+        group.rotation.x += 0.003;
+        group.rotation.y += 0.002;
+        renderer.render(scene, camera);
+      }
+      animate();
+      window.addEventListener('resize', ()=>{
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    })();
+
+    // Mobile menu toggle
+    (function(){
+      const menuBtn = document.querySelector('.menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', ()=> navLinks.classList.toggle('active'));
+      }
+    })();
+  </script>
+</body>
+</html>

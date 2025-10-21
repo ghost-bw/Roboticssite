@@ -418,6 +418,50 @@ header.sticky {
     gap: 30px;
 }
 
+/* Projects Slider overrides */
+.projects-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.projects-slider .projects-grid {
+  display: flex;
+  gap: 30px;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+/* Match project card width to team card width (300px) inside slider */
+.projects-slider .project-card {
+  flex: 0 0 300px;
+}
+
+.proj-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #e6f1ff;
+  border: 1px solid #64ffda;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.proj-nav.prev { left: -10px; }
+.proj-nav.next { right: -10px; }
+
+@media (max-width: 768px) {
+  .proj-nav.prev { left: 0; }
+  .proj-nav.next { right: 0; }
+}
+
 .project-card {
     background: #112240;
     border-radius: 10px;
@@ -1285,6 +1329,26 @@ header.sticky {
     min-height: 150px;
     resize: vertical;
 }
+
+/* Contact Map */
+.contact-map {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+}
+
+.map-embed {
+    width: 100%;
+    min-height: 320px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 992px) {
+    .map-embed { min-height: 260px; }
+}
+
 
 /* Footer */
 footer {

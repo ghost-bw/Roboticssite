@@ -32,7 +32,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="#teams">Teams</a></li>
                 <li><a href="#events">Events</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -115,11 +115,13 @@
     <section id="projects">
         <div class="container">
             <h2 class="section-title">Our Projects</h2>
-            <div class="projects-grid">
+            <div class="projects-slider">
+                <button class="proj-nav prev" aria-label="Previous">&#10094;</button>
+                <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
                         <img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/320/059/datas/original.jpg"
-                            alt="Autonomous Rover">
+                            alt="blind people glasses">
                     </div>
                     <div class="project-info">
                         <h3>Blind People Glasses</h3>
@@ -129,8 +131,8 @@
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://tse4.mm.bing.net/th/id/OIP.o1wK1qrsPrMTXjMpib2xiwHaEO?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
-                            alt="6-Axis Robotic Arm random image">
+                        <img src="../image/drone.jpg"
+                            alt="shooting drone">
                     </div>
                     <div class="project-info">
                         <h3>Shooting Drone</h3>
@@ -141,7 +143,7 @@
                 <div class="project-card">
                     <div class="project-image">
                         <img src="https://cdnb.artstation.com/p/marketplace/presentation_assets/000/076/193/large/file.jpg?1549067765"
-                            alt="Drone Events">
+                            alt="robotic hand">
                     </div>
                     <div class="project-info">
                         <h3>Robotic Hand</h3>
@@ -152,8 +154,8 @@
                 </div>
                    <div class="project-card">
                     <div class="project-image">
-                        <img src="https://thvnext.bing.com/th/id/OIP.XP9CusA2eKyozYHHG0Zm4gHaFN?w=283&h=180&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-                            alt="Autonomous Rover">
+                        <img src="../image/Line-Follower.jpg"
+                            alt="line following bot">
                     </div>
                     <div class="project-info">
                         <h3>Line Following Bot</h3>
@@ -161,80 +163,22 @@
                         <!-- <a href="#" class="btn">View Details</a> -->
                     </div>
                 </div>
+                 <div class="project-card">
+                    <div class="project-image">
+                        <img src="loadin"
+                            alt="  surprise">
+                    </div>
+                    <div class="project-info">
+                        <h3>Projects Loading...</h3>
+                        <p> Many more exxciting projects are coming...</p>
+                        <!-- <a href="#" class="btn">View Details</a> -->
+                    </div>
+                </div>
+                </div>
+                <button class="proj-nav next" aria-label="Next">&#10095;</button>
             </div>
         </div>
     </section>
-    <!-- Gallery Section -->
-<section id="gallery">
-    <div class="container">
-        <h2 class="section-title">Gallery</h2>
-        <p class="section-subtitle">Take a glimpse of our Robotics Club projects and events</p>
-
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="../image/as.jpg" alt="Gallery Image 1">
-            </div>
-            <div class="gallery-item">
-                <img src="../image/bks1.jpg" alt="Gallery Image 2">
-            </div>
-            <div class="gallery-item">
-                <img src="../image/img 1.jpg" alt="Gallery Image 3">
-            </div>
-            <div class="gallery-item">
-                <img src="../image/img 2.jpg" alt="Gallery Image 4">
-            </div>
-            <div class="gallery-item">
-                <img src="../image/img 3.jpg" alt="Gallery Image 5">
-            </div>
-            <div class="gallery-item">
-                <img src="../image/img 4.jpg" alt="Gallery Image 6">
-            </div>
-             <div class="gallery-item">
-                <img src="../image/img 5.jpg" alt="Gallery Image 7">
-            </div>
-            <div class="gallery-item">
-                <img src="../image/img 6.jpg" alt="Gallery Image 8">
-            </div>
-             <div class="gallery-item">
-                <img src="../image/img 7.jpg" alt="Gallery Image 9">
-            </div>
-             <div class="gallery-item">
-                <img src="../image/rob1.jpg" alt="Gallery Image 11">
-            </div>
-             <div class="gallery-item">
-                <img src="../image/rob2.jpg" alt="Gallery Image 12">
-            </div>
-             <div class="gallery-item">
-                <img src="../image/rob3.jpg" alt="Gallery Image 13">
-            </div>
-             <div class="gallery-item">
-                <img src="../image/rob4.jpg" alt="Gallery Image 14">
-            </div>
-             <div class="gallery-item">
-                <img src="../image/rob5.jpg" alt="Gallery Image 15">
-            </div>
-            <div class="gallery-item">
-                <img src="../image/rob6.jpg" alt="Gallery Image 16">
-            </div>
-            <div class="gallery-item">
-                <img src="../image/rob7.jpg" alt="Gallery Image 17">
-            </div>
-            <div class="gallery-item">
-                <video controls>
-                    <source src="../image/vid 1.mp4" type="video/mp4">
-                </video>
-                <h3 class="media-title">Autonomous Robot Demo1</h3>
-            </div>
-            <div class="gallery-item">
-                <video controls>
-                    <source src="../image/vid 2.mp4" type="video/mp4">
-                    
-                </video>
-                <h3 class="media-title">Autonomous Robot Demo2</h3>
-            </div>
-        </div>
-    </div>
-</section>
 
     <!-- Robotics Club Head Section -->
     <section id="club-heads">
@@ -270,19 +214,7 @@
             <h2 class="section-title">Our Teams</h2>
 
             <div class="teams-container">
-                <div class="team-card">
-                    <div class="team-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Robot Operating System</h3>
-                    <p>Open-source framework that provides tools and libraries to build, program, and control robots
-                        efficiently.</p>
-                    <div class="button-container">
-                        <button class="view-members-btn" data-team="ROS">View Team Members</button>
-
-                    </div>
-
-                </div>
+        
                 <div class="team-card">
                     <div class="team-icon">
                         <i class="fas fa-microchip"></i>
@@ -296,19 +228,7 @@
                     </div>
 
                 </div>
-                <div class="team-card">
-                    <div class="team-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Development of control algorithms, computer vision, AI integration, and embedded systems
-                        programming.</p>
-                    <div class="button-container">
-                        <button class="view-members-btn" data-team="webd">View Team Members</button>
 
-                    </div>
-
-                </div>
                 <div class="team-card">
                     <div class="team-icon">
                         <i class="fa-solid fa-cube fa-rotate-180"></i>
@@ -322,6 +242,36 @@
                     </div>
 
                 </div>
+
+                <div class="team-card">
+                    <div class="team-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Development of control algorithms, computer vision, AI integration, and embedded systems
+                        programming.</p>
+                    <div class="button-container">
+                        <button class="view-members-btn" data-team="webd">View Team Members</button>
+
+                    </div>
+
+                </div>
+
+                  <div class="team-card">
+                    <div class="team-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Robot Operating System</h3>
+                    <p>Open-source framework that provides tools and libraries to build, program, and control robots
+                        efficiently.</p>
+                    <div class="button-container">
+                        <button class="view-members-btn" data-team="ROS">View Team Members</button>
+
+                    </div>
+
+                </div>
+                
+
                 <div class="team-card">
                     <div class="team-icon">
                         <i class="fa-solid fa-crosshairs"></i>
@@ -332,7 +282,7 @@
 
                     <button class="view-members-btn" data-team="drone">View Team Members</button>
 
-                </div>0
+                </div>
                 <div class="team-card">
                     <div class="team-icon">
                         <i class="fa-solid fa-calendar-check"></i>
@@ -674,40 +624,11 @@
                 </div>
                 
 
-                <div class="contact-form">
-  <form id="contact-form">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="from_name" required>
-    </div>
-
-    <div class="form-group">
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="from_subject" required>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="from_email" required>
-    </div>
-
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-
-    <!-- OTP field (hidden at first) -->
-    <div class="form-group" id="otp-section" style="display: none;">
-      <label for="otp">Enter OTP</label>
-      <input type="text" id="otp" placeholder="Enter the OTP sent to your email">
-    </div>
-
-    <button type="button" id="send-otp-btn" class="btn">Get OTP</button>
-    <button type="submit" id="submit-btn" class="btn" disabled>Send Message</button>
-
-    <p class="spamOtp">For OTP You may need to check spam folder</p>
-  </form>
-</div>
+                <div class="contact-map">
+                    <iframe class="map-embed" loading="lazy" allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.160043093606!2d91.7073982!3d25.2974991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398dc7b8f9f6f4d9%3A0x9b9cf8f4d1cf93b7!2sNational%20Institute%20of%20Technology%20Meghalaya%20(Sohra%20Campus)!5e0!3m2!1sen!2sin!4v1730130000000"></iframe>
+                </div>
 
 
             </div>

@@ -9,6 +9,33 @@ function initThreeJS() {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
+// Projects slider controls
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.projects-slider');
+    if (!slider) return;
+    const track = slider.querySelector('.projects-grid');
+    const prevBtn = slider.querySelector('.proj-nav.prev');
+    const nextBtn = slider.querySelector('.proj-nav.next');
+    if (!track || !prevBtn || !nextBtn) return;
+
+    function getScrollAmount() {
+        const firstCard = track.querySelector('.project-card');
+        if (firstCard) {
+            const style = window.getComputedStyle(track);
+            const gap = parseInt(style.columnGap || style.gap || '30', 10) || 30;
+            return firstCard.getBoundingClientRect().width + gap;
+        }
+        return 320; // fallback
+    }
+
+    prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
+});
+
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
@@ -255,8 +282,9 @@ for (b_btn of back_btns) {
 
 let generatedOTP = null;
 
-// Step 1: Generate OTP & Send Email
-document.getElementById("send-otp-btn").addEventListener("click", function () {
+// Step 1: Generate OTP & Send Email (only if contact form exists)
+const sendOtpBtn = document.getElementById("send-otp-btn");
+if (sendOtpBtn) sendOtpBtn.addEventListener("click", function () {
     const emailInput = document.getElementById("email").value.trim();
 
     // Allow only @nitm.ac.in emails
@@ -285,8 +313,9 @@ document.getElementById("send-otp-btn").addEventListener("click", function () {
     });
 });
 
-// Step 2: Handle Form Submit
-document.getElementById("contact-form").addEventListener("submit", function (event) {
+// Step 2: Handle Form Submit (only if contact form exists)
+const contactForm = document.getElementById("contact-form");
+if (contactForm) contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const userOTP = document.getElementById("otp").value;
@@ -307,10 +336,14 @@ document.getElementById("contact-form").addEventListener("submit", function (eve
     }
 });
 
-// Enable submit button only after OTP entered
-document.getElementById("otp").addEventListener("input", function () {
-    document.getElementById("submit-btn").disabled = this.value.length < 6;
-});
+// Enable submit button only after OTP entered (if inputs exist)
+const otpInput = document.getElementById("otp");
+const submitBtn = document.getElementById("submit-btn");
+if (otpInput && submitBtn) {
+    otpInput.addEventListener("input", function () {
+        submitBtn.disabled = this.value.length < 6;
+    });
+}
 // Mini Maze Runner Game (appears at bottom of the site)
 window.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById('mazeCanvas');
